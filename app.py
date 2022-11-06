@@ -115,7 +115,7 @@ def make_df(data):
 
 
 with st.container():
-    st.markdown('# Shopee Product Sold Prediction')
+    st.markdown('# Shopee Product Sales Prediction')
     with st.form(key='info'):
         with st.expander(label='Shop Information', expanded=False):
             follower_count = st.number_input(label="Follower", min_value=0)
