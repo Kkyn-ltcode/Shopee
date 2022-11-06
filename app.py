@@ -122,14 +122,11 @@ with st.container():
 
             products = st.number_input(label="Products", min_value=1)
 
-            rating_good = st.slider(
-                label='Rating Good', min_value=1, max_value=5, value=5, step=1)
+            rating_good = st.number_input(label="Rating Good", min_value=1)
 
-            rating_bad = st.slider(
-                label='Rating Bad', min_value=1, max_value=5, value=1, step=1)
+            rating_bad = st.number_input(label="Rating Bad", min_value=1)
 
-            rating_normal = st.slider(
-                label='Rating Normal', min_value=1, max_value=5, value=3, step=1)
+            rating_normal = st.number_input(label="Rating Normal", min_value=1)
 
             location_options = ['Hà Nội', 'Nam Định', 'TP. Hồ Chí Minh', 'Hải Dương', 'Thái Bình', 'Quốc Tế', 'Bắc Ninh', 'Thanh Hóa', 'Bình Dương', 'Nghệ An', 'Long An', 'Hải Phòng', 'Lâm Đồng', 'Đà Nẵng', 'Đắk Nông', 'Phú Yên', 'Quảng Ninh', 'Đắk Lắk', 'Hưng Yên',
                                 'Quảng Ngãi', 'Hà Nam', 'Thái Nguyên', 'Cần Thơ', 'Kiên Giang', 'Lào Cai', 'Sơn La', 'Thừa Thiên Huế', 'Đồng Nai', 'Điện Biên', 'Gia Lai', 'Tây Ninh', 'Bình Thuận', 'Ninh Bình', 'Bà Rịa - Vũng Tàu', 'Lạng Sơn', 'An Giang', 'Bắc Giang', 'Tiền Giang']
