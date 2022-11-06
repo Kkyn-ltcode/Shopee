@@ -75,6 +75,8 @@ def data_preprocessing(data):
     data['category'] = create_category(
         category[1:], data.loc[:, 'product_name'])
     data['category'] = data['category'].apply(lambda x: category[x])
+    for cat in category:
+        data[cat] = data['category'].apply(lambda x: 1 if x == cat else 0)
 
     data['two_time'] = data['product_ctime'].apply(
         lambda x: convert_ctime_to_two_time(x))
@@ -84,8 +86,6 @@ def data_preprocessing(data):
 
     data['shop_location_encoded'] = data['shop_location'].apply(
         lambda x: config['shop_encoded'][x])
-    data['category_encoded'] = data['category'].apply(
-        lambda x: config['cat_encoded'][x])
 
     col_to_log = ['price', 'follower_count', 'products', 'rating_good',
                   'rating_bad', 'rating_normal', 'shop_location_encoded']
@@ -103,8 +103,8 @@ def data_preprocessing(data):
     cols = ['stock', 'brand', 'price', 'follower_count',
             'products', 'rating_normal', 'rating_bad', 'rating_good', 'rating_star',
             'response_time', 'response_rate', 'Unisex', 'Female', 'Male', 'color',
-            'size', 'time_summer', 'time_winter', 'shop_location_encoded',
-            'category_encoded', 'cluster']
+            'size'] + category + ['time_summer', 'time_winter', 'shop_location_encoded', 'cluster']
+
     data = data[cols]
     return data
 
