@@ -158,7 +158,7 @@ with st.container():
             ctime = int(time.time()) - int(time_interval.split()[0])
 
             rating_star = st.number_input(
-                label="Rating Star", min_value=1, max_value=5)
+                label="Rating Star", min_value=1.0, max_value=5.0)
         submit_button = st.form_submit_button('Submit')
 
         if submit_button and product_name != '':
