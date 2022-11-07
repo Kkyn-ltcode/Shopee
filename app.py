@@ -4,12 +4,21 @@ import pandas as pd
 import numpy as np
 import json
 import pickle
+import unicodedata
+import re
 
 st.set_page_config(
     page_title="Shopee", page_icon="random",
     initial_sidebar_state="expanded", layout="wide"
 )
 pd.set_option('display.max_columns', None)
+
+
+def normalize(sentence):
+    sentence = unicodedata.normalize("NFC", sentence)
+    sentence = sentence.lower()
+    sentence = re.sub(r"\s+", ' ', sentence)
+    return sentence
 
 
 def predict(data):
